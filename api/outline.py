@@ -39,3 +39,6 @@ async def get_country_outline(country: str = Query(...)):
     return {"outline": outline}
 
 
+handler = app
+
+
