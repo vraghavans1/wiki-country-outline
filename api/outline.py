@@ -38,4 +38,7 @@ async def get_country_outline(country: str = Query(...)):
     print("Country processed:", country_name)
     return {"outline": outline}
 
+# Export the FastAPI app as ``handler`` for Vercel compatibility
+handler = app
+
 
