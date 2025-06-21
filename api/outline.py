@@ -36,6 +36,7 @@ async def get_country_outline(country: str = Query(...)):
         elif tag == "h5": markdown_lines.append(f"##### {text}\n")
         elif tag == "h6": markdown_lines.append(f"###### {text}\n")
     outline = "\n".join(markdown_lines)
+    print("Country processed:", country_name)
     return {"outline": outline}
 
 handler = Mangum(app)
