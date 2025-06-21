@@ -2,7 +2,6 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import httpx
 from bs4 import BeautifulSoup
-from mangum import Mangum
 
 app = FastAPI()
 app.add_middleware(
@@ -39,4 +38,7 @@ async def get_country_outline(country: str = Query(...)):
     print("Country processed:", country_name)
     return {"outline": outline}
 
-handler = Mangum(app)
+# Export the FastAPI app as ``handler`` for Vercel compatibility
+handler = app
+
+
